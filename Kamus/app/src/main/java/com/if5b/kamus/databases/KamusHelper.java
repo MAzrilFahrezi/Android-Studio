@@ -59,12 +59,11 @@ public class KamusHelper {
         return arrayList;
     }
 
-    public int insertDataEnglishIndonesia(Kamus kamus){
+    public long insertDataEnglishIndonesia(Kamus kamus){
         ContentValues cv = new ContentValues();
         cv.put(ENGLISH_INDONESIA_TITLE, kamus.getTitle());
         cv.put(ENGLISH_INDONESIA_DESCRIPTION, kamus.getDescription());
-        return database.update(TABLE_ENGLISH_INDONESIA_NAME, cv,
-                _ID + "= " + kamus.getId() + "'", null);
+        return database.insert(TABLE_ENGLISH_INDONESIA_NAME, null, cv);
     }
 
     public ArrayList<Kamus> getAllDataEnglishIndonesia(){
@@ -90,6 +89,14 @@ public class KamusHelper {
         }
         cursor.close();
         return arrayList;
+    }
+
+    public int updateDataEnglishIndonesia(Kamus kamus){
+        ContentValues cv = new ContentValues();
+        cv.put(ENGLISH_INDONESIA_TITLE, kamus.getTitle());
+        cv.put(ENGLISH_INDONESIA_DESCRIPTION, kamus.getDescription());
+        return database.update(TABLE_ENGLISH_INDONESIA_NAME, cv,
+                _ID + "= " + kamus.getId() + "'", null);
     }
 
     public int deleteDataEnglishIndonesia(int id){
