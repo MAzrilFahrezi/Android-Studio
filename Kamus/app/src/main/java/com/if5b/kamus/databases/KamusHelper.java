@@ -38,7 +38,7 @@ public class KamusHelper {
         Cursor cursor = database.query(TABLE_ENGLISH_INDONESIA_NAME,
                 null,
                 ENGLISH_INDONESIA_TITLE + " LIKE ?",
-                new String[]{"%" + title + " %"},
+                new String[]{"%" + title + "%"},
                 null,
                 null,
                 _ID + " ASC",
@@ -52,8 +52,9 @@ public class KamusHelper {
                 kamus.setId(cursor.getInt(cursor.getColumnIndexOrThrow(_ID)));
                 kamus.setTitle(cursor.getString(cursor.getColumnIndexOrThrow(ENGLISH_INDONESIA_TITLE)));
                 kamus.setDescription(cursor.getString(cursor.getColumnIndexOrThrow(ENGLISH_INDONESIA_DESCRIPTION)));
+                arrayList.add(kamus);
+                cursor.moveToNext();
             } while (!cursor.isAfterLast());
-
         }
         cursor.close();
         return arrayList;
@@ -84,8 +85,9 @@ public class KamusHelper {
                 kamus.setId(cursor.getInt(cursor.getColumnIndexOrThrow(_ID)));
                 kamus.setTitle(cursor.getString(cursor.getColumnIndexOrThrow(ENGLISH_INDONESIA_TITLE)));
                 kamus.setDescription(cursor.getString(cursor.getColumnIndexOrThrow(ENGLISH_INDONESIA_DESCRIPTION)));
+                arrayList.add(kamus);
+                cursor.moveToNext();
             } while (!cursor.isAfterLast());
-
         }
         cursor.close();
         return arrayList;

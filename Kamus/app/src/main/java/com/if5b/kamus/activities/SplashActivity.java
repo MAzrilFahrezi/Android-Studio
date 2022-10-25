@@ -85,7 +85,7 @@ public class SplashActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             binding.progressBar.setProgress((int) progress);
-            binding.tvLoading.setText("LOADING "+values[0] +"%");
+            binding.tvLoading.setText("LOADING "+values[0] +"%...");
         }
 
         @Override
