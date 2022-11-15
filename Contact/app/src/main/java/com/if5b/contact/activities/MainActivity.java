@@ -26,15 +26,14 @@ import com.if5b.contact.loaders.GetAllLoader;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int DATA_LOADER_CODE = 123;
-    private static final int DELETE_LOADER_CODE = 124;
     private ActivityMainBinding binding;
-
+    private static final int GETALLDATA_LOADER = 666;
+    private static final int DELETEDATA_LOADER = 667;
     private ActivityResultLauncher<Intent> intentActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
-            if (result.getResultCode() == RESULT_OK){
-                getData();
+            if (result.getResultCode() == RESULT_OK) {
+                getUser();
             }
         }
     });
@@ -44,17 +43,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.fabInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, InputActivity.class));
+            }
+        });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        getData();
+        getUser();
     }
 
-    private void getData() {
+    private void getUser() {
         showProgressBar();
-        LoaderManager.getInstance(this).restartLoader(DATA_LOADER_CODE, null, new LoaderManager.LoaderCallbacks<List<User>>() {
+        LoaderManager.getInstance(this).restartLoader(GETALLDATA_LOADER, null, new LoaderManager.LoaderCallbacks<List<User>>() {
+
             @NonNull
             @Override
             public Loader<List<User>> onCreateLoader(int id, @Nullable Bundle args) {
@@ -69,16 +76,16 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLoaderReset(@NonNull Loader<List<User>> loader) {
-
+                
             }
-        });
+        }).forceLoad();
     }
 
     private void initAdapter(List<User> data) {
         UserAdapter userAdapter = new UserAdapter();
         binding.rvUser.setLayoutManager(new LinearLayoutManager(this));
         binding.rvUser.setAdapter(userAdapter);
-        userAdapter.setData(data);
+        userAdapter.setUsers(data);
         userAdapter.setOnClickListener(new UserAdapter.OnClickListener() {
             @Override
             public void onEditClicked(User user) {
@@ -93,17 +100,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void gotoUpdateUserActivity(User user) {
-        Intent intent = new Intent(this, InputActivity.class);
-        intent.putExtra("edit", true);
-        intent.putExtra("use", user);
-        intentActivityResultLauncher.launch(intent);
+            Intent intent = new Intent(MainActivity.this, InputActivity.class);
+            intent.putExtra("edit", true);
+            intent.putExtra("user", user);
+            intentActivityResultLauncher.launch(intent);
     }
 
     private void deleteUser(int userId) {
         showProgressBar();
         Bundle args = new Bundle();
         args.putInt("id", userId);
-        LoaderManager.getInstance(this).restartLoader(DELETE_LOADER_CODE, args, new LoaderManager.LoaderCallbacks<Integer>() {
+        LoaderManager.getInstance(this).restartLoader(DELETEDATA_LOADER, args, new LoaderManager.LoaderCallbacks<Integer>() {
             @NonNull
             @Override
             public Loader<Integer> onCreateLoader(int id, @Nullable Bundle args) {
@@ -113,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLoadFinished(@NonNull Loader<Integer> loader, Integer data) {
                 hideProgressBar();
-                if (data != -1){
+                if (data != -1) {
                     itemDeleted();
                 }
             }
@@ -126,15 +133,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void itemDeleted() {
-        Toast.makeText(this, "User Deleted!", Toast.LENGTH_SHORT).show();
-        getData();
+        Toast.makeText(this, "User deleted !", Toast.LENGTH_SHORT).show();
+        getUser();
     }
 
-    private void hideProgressBar(){
+    private void hideProgressBar() {
         binding.progressBar.setVisibility(View.GONE);
     }
-
-    private void showProgressBar(){
+    private void showProgressBar() {
         binding.progressBar.setVisibility(View.VISIBLE);
     }
 }

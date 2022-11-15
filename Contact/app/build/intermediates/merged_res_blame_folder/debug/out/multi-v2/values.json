@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.zey.contact.app-mergeDebugResources-30:/values/values.xml",
+            "outputFile": "com.if5b.contact.app-mergeDebugResources-30:/values/values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\u-mdp\\.gradle\\caches\\transforms-3\\b96256539dbd15fe05ef3f774d34b33b\\transformed\\transition-1.2.0\\res\\values\\values.xml",
@@ -18,6 +18,23 @@
                         "startOffsets": "94662,94702,95784,95966,96021,97517,97571,97623,97672,97733",
                         "endColumns": "39,46,42,54,46,53,51,48,60,49",
                         "endOffsets": "94697,94744,95822,96016,96063,97566,97618,97667,97728,97778"
+                    }
+                },
+                {
+                    "source": "D:\\zeyif5b\\PAB-2-main\\PAB-2-main\\contact\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "7,2,3,4,5,6,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "286,55,102,149,196,241,328",
+                        "endColumns": "41,46,46,46,44,44,41",
+                        "endOffsets": "323,97,144,191,236,281,365"
+                    },
+                    "to": {
+                        "startLines": "611,835,836,837,848,849,852",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "31106,47164,47211,47258,48002,48047,48213",
+                        "endColumns": "41,46,46,46,44,44,41",
+                        "endOffsets": "31143,47206,47253,47300,48042,48087,48250"
                     }
                 },
                 {
@@ -112,7 +129,7 @@
                     }
                 },
                 {
-                    "source": "D:\\zeyif5b\\Android-Studio\\Contact\\app\\src\\main\\res\\values\\themes.xml",
+                    "source": "D:\\zeyif5b\\PAB-2-main\\PAB-2-main\\contact\\app\\src\\main\\res\\values\\themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -186,7 +203,7 @@
                     }
                 },
                 {
-                    "source": "D:\\zeyif5b\\Android-Studio\\Contact\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "D:\\zeyif5b\\PAB-2-main\\PAB-2-main\\contact\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",
@@ -200,23 +217,6 @@
                         "startOffsets": "105250",
                         "endColumns": "44",
                         "endOffsets": "105290"
-                    }
-                },
-                {
-                    "source": "D:\\zeyif5b\\Android-Studio\\Contact\\app\\src\\main\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "7,2,3,4,5,6,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "286,55,102,149,196,241,328",
-                        "endColumns": "41,46,46,46,44,44,41",
-                        "endOffsets": "323,97,144,191,236,281,365"
-                    },
-                    "to": {
-                        "startLines": "611,835,836,837,848,849,852",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "31106,47164,47211,47258,48002,48047,48213",
-                        "endColumns": "41,46,46,46,44,44,41",
-                        "endOffsets": "31143,47206,47253,47300,48042,48087,48250"
                     }
                 },
                 {

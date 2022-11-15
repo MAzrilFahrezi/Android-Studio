@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zey.contact"
+    package="com.if5b.contact"
     android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="21"
+        android:minSdkVersion="23"
         android:targetSdkVersion="32" />
 
     <application
@@ -13,6 +13,7 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:debuggable="true"
+        android:extractNativeLibs="false"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,7 +22,14 @@
         android:testOnly="true"
         android:theme="@style/Theme.Contact" >
         <activity
-            android:name="com.zey.contact.activities.MainActivity"
+            android:name="com.if5b.contact.activities.InputActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.if5b.contact.activities.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,7 +49,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.zey.contact.androidx-startup"
+            android:authorities="com.if5b.contact.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"

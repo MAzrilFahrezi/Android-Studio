@@ -1,27 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "com.zey.contact.app-mergeDebugResources-30:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.if5b.contact.app-mergeDebugResources-30:/values-night-v8/values-night-v8.xml",
             "map": [
-                {
-                    "source": "D:\\zeyif5b\\Android-Studio\\Contact\\app\\src\\main\\res\\values-night\\themes.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "100",
-                        "endLines": "14",
-                        "endColumns": "12",
-                        "endOffsets": "796"
-                    },
-                    "to": {
-                        "startLines": "9",
-                        "startColumns": "4",
-                        "startOffsets": "687",
-                        "endLines": "21",
-                        "endColumns": "12",
-                        "endOffsets": "1262"
-                    }
-                },
                 {
                     "source": "C:\\Users\\u-mdp\\.gradle\\caches\\transforms-3\\034f511a629c0fda711794a09fef4382\\transformed\\appcompat-1.5.1\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
@@ -37,6 +18,25 @@
                         "startOffsets": "55,125,209,293,389,491,593,3921",
                         "endColumns": "69,83,83,95,101,101,93,88",
                         "endOffsets": "120,204,288,384,486,588,682,4005"
+                    }
+                },
+                {
+                    "source": "D:\\zeyif5b\\PAB-2-main\\PAB-2-main\\contact\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "100",
+                        "endLines": "14",
+                        "endColumns": "12",
+                        "endOffsets": "796"
+                    },
+                    "to": {
+                        "startLines": "9",
+                        "startColumns": "4",
+                        "startOffsets": "687",
+                        "endLines": "21",
+                        "endColumns": "12",
+                        "endOffsets": "1262"
                     }
                 },
                 {

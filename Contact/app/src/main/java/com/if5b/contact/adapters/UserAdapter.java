@@ -1,5 +1,7 @@
 package com.if5b.contact.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,21 +14,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.if5b.contact.R;
 import com.if5b.contact.entities.User;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
-    private List<User> data = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
     private OnClickListener listener;
 
-    public UserAdapter(){
+    public UserAdapter() {
 
     }
 
-    public void setData(List<User> data) {
-        this.data = data;
+    public void setUsers(List<User> users) {
+        this.users = users;
         notifyDataSetChanged();
     }
 
@@ -39,23 +39,22 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull UserAdapter.ViewHolder holder, int position) {
-        User user = data.get(position);
+        User user = users.get(holder.getAdapterPosition());
         holder.tvName.setText("Name : " + user.getName());
         holder.tvEmail.setText("Email : " + user.getEmail());
         holder.tvPhone.setText("Phone : " + user.getPhone());
         holder.ivEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (listener != null){
+                if (listener != null) {
                     listener.onEditClicked(user);
                 }
             }
         });
-
         holder.ivDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (listener != null){
+                if (listener != null) {
                     listener.onDeleteClicked(user.getId());
                 }
             }
@@ -64,7 +63,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return users.size();
     }
 
     @Override
@@ -75,19 +74,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvName, tvEmail, tvPhone;
         private ImageView ivEdit, ivDelete;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             tvName = itemView.findViewById(R.id.tv_name);
             tvEmail = itemView.findViewById(R.id.tv_email);
             tvPhone = itemView.findViewById(R.id.tv_phone);
-            ivEdit = itemView.findViewById(R.id.iv_edit);
-            ivDelete = itemView.findViewById(R.id.iv_delete);
+            ivEdit = itemView.findViewById(R.id.ivEdit);
+            ivDelete = itemView.findViewById(R.id.ivDelete);
         }
     }
 
-    public void setOnClickListener(OnClickListener listener){
+    public void setOnClickListener(OnClickListener listener) {
         this.listener = listener;
     }
 

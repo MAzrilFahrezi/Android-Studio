@@ -7,31 +7,33 @@
     tools:context=".activities.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_user"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:id="@+id/rvUser"
+        tools:listitem="@layout/item_user"
+        />
 
     <ProgressBar
-        android:id="@+id/progress_bar"
-        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleLarge"
+        android:id="@+id/progressBar"
+        android:indeterminateTint="#EA2C6C"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:indeterminateTint="@color/purple_500"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_input"
         android:layout_width="wrap_content"
+        android:id="@+id/fabInput"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_margin="16dp"
+        android:backgroundTint="#EA6D97"
+        android:tint="@color/white"
         android:src="@drawable/ic_add_24"
-        app:tint="@color/white"
-        android:backgroundTint="@color/purple_500"/>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
